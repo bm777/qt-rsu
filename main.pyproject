@@ -1,3 +1,3 @@
 {
-    "files": ["qml/Circle.qml","img/arc-l.svg","main.py","img/bts-green.svg","qml/Route.qml","qml/TA.qml","qml/main.qml","img/arc-r.svg","js/script.js","qml/Bts.qml","img/bts.svg","README.md","qml/Car.qml"]
+    "files": ["img/bts-green.svg","main.py","qml/TA.qml","qml/Car.qml","qml/Bts.qml","img/bts.svg","qml/Route.qml","js/script.js","qml/Circle.qml","img/arc-l.svg","qml/main.qml","README.md","img/arc-r.svg","qml/Car2.qml"]
 }

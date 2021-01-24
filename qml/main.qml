@@ -45,10 +45,11 @@ Window {
             x: parent.width - 200
         }
         // =+++++++++++++++++++++++++++++++++++++++++++++++++++
-        Car {
+        Car2 {
             id: car2
-            y: parent.height / 2 - 120
-            x: parent.width - 200
+            y: parent.height / 2 + 5
+            x: 0
+
         }
 
         // =+++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -64,7 +65,7 @@ Window {
     }
 
     SequentialAnimation {
-        running: true
+        running: bts.value
         loops: Animation.Infinite
 
 
@@ -73,9 +74,9 @@ Window {
             NumberAnimation {
                 target: car
                 property: "x"
-                from: 1000
+                from: 1200
                 to: 850
-                duration: 2000
+                duration: 4000
                 easing.type: Easing.InOutQuad
             }
             NumberAnimation {
@@ -83,14 +84,47 @@ Window {
                 property: "x"
                 from: 850
                 to: 700
-                duration: 2000
+                duration: 3000
                 easing.type: Easing.InOutQuad
             }
             NumberAnimation {
                 target: car
                 property: "x"
-                to: 0
-                duration: 5000
+                to: -200
+                duration: 8000
+                easing.type: Easing.InOutQuad
+            }
+        }
+    }
+
+    SequentialAnimation {
+        running: bts.value
+        loops: Animation.Infinite
+
+
+        SequentialAnimation {
+            running: true
+            NumberAnimation {
+                target: car2
+                property: "x"
+                from: -200 //1000
+                to: 600 //850
+                duration: 8000
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                target: car2
+                property: "x"
+                from: 600//850
+                to: 850//700
+                duration: 3000
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                target: car2
+                property: "x"
+                to: 1200
+                duration: 4000
                 easing.type: Easing.InOutQuad
             }
         }

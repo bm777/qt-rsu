@@ -7,13 +7,14 @@ Item {
 
     Rectangle {
         id: rect
+        visible: bts.value
         height: 300
         width: 300
         radius: parent.height / 2
         color: "#60ee4e34"
 
         ParallelAnimation {
-            running: true
+            running: bts.value
             loops: Animation.Infinite
 
 
