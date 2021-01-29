@@ -14,10 +14,12 @@ Window {
 
         property real main_bts_vlaue: bts.value
 
+
         Rectangle {
             anchors.fill: root
             color: "#fcedda"
         }
+
 
 
         // =+++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -37,19 +39,48 @@ Window {
             x: 20
             y: 20
         }
+        Image {
+            id: cert
+            source: "../img/certif.svg"
+            visible: true
+            x: 40 //470
+            y: 80
+        }
+
+        ParallelAnimation{
+            running: true
+
+            NumberAnimation {
+                running: true
+                target: cert
+                property: "x"
+                duration: 1000
+                to: 410
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                running: true
+                target: cert
+                property: "y"
+                duration: 1000
+                to: 200
+                easing.type: Easing.InOutQuad
+            }
+        }
 
         // =+++++++++++++++++++++++++++++++++++++++++++++++++++
         Car {
             id: car
             y: parent.height / 2 - 120
             x: parent.width - 200
+            property bool _car1: (car.x >= 150 && car.x <= 650) ? true : false
+
         }
         // =+++++++++++++++++++++++++++++++++++++++++++++++++++
         Car2 {
             id: car2
             y: parent.height / 2 + 5
-            x: 0
-
+            property bool _car2: (car2.x >= 200 && car2.x <= 600) ? true : false
         }
 
         // =+++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -61,7 +92,6 @@ Window {
 
 
 
-
     }
 
     SequentialAnimation {
@@ -69,8 +99,7 @@ Window {
         loops: Animation.Infinite
 
 
-        SequentialAnimation {
-            running: true
+
             NumberAnimation {
                 target: car
                 property: "x"
@@ -95,7 +124,7 @@ Window {
                 easing.type: Easing.InOutQuad
             }
         }
-    }
+
 
     SequentialAnimation {
         running: bts.value
