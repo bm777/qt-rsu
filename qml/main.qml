@@ -46,6 +46,13 @@ Window {
             x: 40 //470
             y: 80
         }
+        Image {
+            source: "../img/certif.svg"
+            visible: true
+            x: 410 //470
+            y: 200
+        }
+
 
         ParallelAnimation{
             running: true
@@ -89,10 +96,48 @@ Window {
             y: 50
             x: 340
         }
-
+        Image {
+            id: msg
+            source: "../img/msg.png"
+            visible: false
+            scale: 0.5
+        }
 
 
     }
+
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++
+    ParallelAnimation{
+        running: car._car1
+        PropertyAnimation{
+            target: msg
+            property: "visible"
+            duration: 100
+            to: true
+            easing.type: Easing.InOutQuad
+        }
+
+        NumberAnimation {
+            target: msg
+            property: "x"
+            duration: 1000
+            from: car.x
+            to: 410-15
+            easing.type: Easing.InOutQuad
+        }
+        NumberAnimation {
+            target: msg
+            property: "y"
+            duration: 1000
+            from: car.y
+            to: 200+10
+            easing.type: Easing.InOutQuad
+        }
+    }
+
+
+    // +++++++++++++++++++++++++++++++++++++++++++++++
 
     SequentialAnimation {
         running: bts.value
