@@ -20,6 +20,24 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
 
     }
+    SequentialAnimation {
+        running: root.token
+        PropertyAnimation{
+            target: token
+            property: "visible"
+            duration: 10
+            to: false
+            easing.type: Easing.InOutQuad
+        }
+        PropertyAnimation{
+            target: token
+            property: "visible"
+            duration: 1000
+            to: true
+            easing.type: Easing.InOutQuad
+        }
+
+    }
 
 
 }

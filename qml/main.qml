@@ -102,39 +102,94 @@ Window {
             visible: false
             scale: 0.5
         }
+        Image {
+            id: msg2
+            source: "../img/msg.png"
+            visible: false
+            scale: 0.5
+        }
 
 
     }
 
 
     // +++++++++++++++++++++++++++++++++++++++++++++++
-    ParallelAnimation{
+    SequentialAnimation {
         running: car._car1
-        PropertyAnimation{
-            target: msg
-            property: "visible"
-            duration: 100
-            to: true
-            easing.type: Easing.InOutQuad
-        }
 
-        NumberAnimation {
-            target: msg
-            property: "x"
-            duration: 1000
-            from: car.x
-            to: 410-15
-            easing.type: Easing.InOutQuad
-        }
-        NumberAnimation {
-            target: msg
-            property: "y"
-            duration: 1000
-            from: car.y
-            to: 200+10
-            easing.type: Easing.InOutQuad
+        ParallelAnimation{
+            running: car._car1
+            PropertyAnimation{
+                target: msg
+                property: "visible"
+                duration: 100
+                to: true
+                easing.type: Easing.InOutQuad
+            }
+            PropertyAnimation{
+                target: msg
+                property: "visible"
+                duration: 1000
+                to: true
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                target: msg
+                property: "x"
+                duration: 1000
+                from: car.x
+                to: 410-15
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                target: msg
+                property: "y"
+                duration: 1000
+                from: car.y
+                to: 200+10
+                easing.type: Easing.InOutQuad
+            }
         }
     }
+    SequentialAnimation {
+        running: car2._car2
+
+        ParallelAnimation{
+            running: car2._car2
+            PropertyAnimation{
+                target: msg2
+                property: "visible"
+                duration: 100
+                to: true
+                easing.type: Easing.InOutQuad
+            }
+            PropertyAnimation{
+                target: msg2
+                property: "visible"
+                duration: 1000
+                to: true
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                target: msg2
+                property: "x"
+                duration: 1000
+                from: car2.x
+                to: 410-15
+                easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+                target: msg2
+                property: "y"
+                duration: 1000
+                from: car2.y
+                to: 200+10
+                easing.type: Easing.InOutQuad
+            }
+        }
+    }
+
+
 
 
     // +++++++++++++++++++++++++++++++++++++++++++++++
